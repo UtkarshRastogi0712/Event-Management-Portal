@@ -7,7 +7,7 @@ def db_init():
     load_dotenv()
     CONNECTION_STRING = os.getenv("CONNECTION_STRING")
     client = MongoClient(CONNECTION_STRING)
-    db = client['users']
+    db = client['EventsDB']
     user_collection=db["user_collection"]
     return user_collection
 

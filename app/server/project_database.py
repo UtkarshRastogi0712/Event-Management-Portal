@@ -6,7 +6,7 @@ import os
 load_dotenv()
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 client = MongoClient(CONNECTION_STRING)
-db = client['projects']
+db = client['EventsDB']
   
 
 project_collection=db["project_collection"]

@@ -4,9 +4,9 @@ from datetime import datetime
 
 class Item(BaseModel):
     name: str
-    price: float
-    quantity: int
-    category: Optional[Literal['Construction','Electrical','Plumbing','Labour','Flooring and Tiling','Miscellaneous']]
+    assignedTo: str
+    deadline: str
+    category: Optional[Literal['Venue','Ticketing','Guests','Miscellaneous']]
 
 class ProjectSchema(BaseModel):
     name: str=Field(...)
