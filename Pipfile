@@ -4,6 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = "==0.85.1"
+python-dotenv = "==0.21.0"
+starlette = "==0.20.4"
+uvicorn = "==0.19.0"
+gunicorn = "==20.1.0"
+pydantic = {extras = ["email"], version = "*"}
+pymongo = "==4.3.3"
+python-multipart = "==0.0.6"
+python-jose = {extras = ["cryptography"], version = "*"}
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 
