@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status, Body
 from fastapi.encoders import jsonable_encoder
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.middleware.cors import CORSMiddleware
 from server.models.user import UserSchema, ChangePassword, ResponseModel, ErrorResponseModel
 from server.routes.project import router as ProjectRouter
 from server.routes.items import router as ItemRouter
@@ -12,6 +13,16 @@ app.include_router(ProjectRouter, tags=["Project"], prefix="/project")
 app.include_router(ItemRouter, tags=["Item"], prefix="/item")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/", tags=["Root"])
 async def read_root(token: str = Depends(oauth2_scheme)):
