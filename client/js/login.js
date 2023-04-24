@@ -17,6 +17,10 @@ const login = async () => {
         const result = await response.json();
         if (response.status == 200) {
             localStorage.setItem('token', JSON.stringify(result.access_token));
+            window.location.href = "index.html";
+        }
+        else{
+            window.alert("Invalid Credentials");
         }
         console.log(result);
         showMessage(result.message, response.status == 200 ? 'success' : 'error');
